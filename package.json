@@ -1,6 +1,6 @@
 {
   "name": "@wickedknock/formah",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Instantly format JS/TS files with the world's top 5 style standards — no config files needed",
   "main": "src/cli.js",
   "bin": {
