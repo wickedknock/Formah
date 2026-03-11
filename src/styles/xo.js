@@ -3,10 +3,10 @@
 module.exports = {
   id: 'xo',
   name: 'XO',
-  description: 'XO — strict & opinionated, tabs for indentation, double quotes',
+  description: 'XO — strict & opinionated, tabs for indentation, single quotes',
   prettierConfig: {
     semi:           true,
-    singleQuote:    false,
+    singleQuote:    true,
     tabWidth:       4,
     useTabs:        true,
     printWidth:     80,

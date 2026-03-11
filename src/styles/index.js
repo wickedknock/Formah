@@ -7,14 +7,12 @@
  *   2. require() it here and add it to the array.
  */
 
-const prettierDefault = require('./prettier-default');
-const airbnb          = require('./airbnb');
-const standard        = require('./standard');
-const google          = require('./google');
-const xo              = require('./xo');
+const airbnb   = require('./airbnb');
+const standard = require('./standard');
+const google   = require('./google');
+const xo       = require('./xo');
 
 module.exports = [
-  prettierDefault,
   airbnb,
   standard,
   google,

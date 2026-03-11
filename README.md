@@ -14,36 +14,44 @@ npm install -g @wickedknock/formah
 
 ## See it in action
 
-**You have this messy file:**
+**Before:**
 
 ```js
-const fn = (a,b,c) => {
-if(a){ return a+b+c }
-return null
+const fetchUser = async(userId,options)=>{
+const res = await fetch('/api/users/'+userId,{method:'GET',headers:{'Content-Type':'application/json'}})
+if(!res.ok){throw new Error('Request failed with status '+res.status)}
+const data=await res.json()
+return {id:data.id,name:data.name,email:data.email,role:data.role||'user'}
 }
-const obj = {foo: 'bar', baz: 'qux', another: 'value'}
 ```
 
 **Run:**
 
 ```bash
-formah myfile.js
+formah api.js
 ```
 
-**Pick a style from the menu, and the file is instantly cleaned up:**
+**After — Airbnb:**
 
 ```js
-const fn = (a, b, c) => {
-  if (a) {
-    return a + b + c;
-  }
-  return null;
-};
+const fetchUser = async (userId, options) => {
+  const res = await fetch(`/api/users/${userId}`, {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+  });
 
-const obj = {
-  foo: "bar",
-  baz: "qux",
-  another: "value",
+  if (!res.ok) {
+    throw new Error(`Request failed with status ${res.status}`);
+  }
+
+  const data = await res.json();
+
+  return {
+    id: data.id,
+    name: data.name,
+    email: data.email,
+    role: data.role || 'user',
+  };
 };
 ```
 
@@ -55,13 +63,12 @@ The file is saved in-place. No config files, no extra steps.
 
 Choose one every time you run `formah`:
 
-| Style | Quotes | Semicolons | Indent |
-|---|---|---|---|
-| **Prettier** | double | yes | 2 spaces |
-| **Airbnb** | single | yes | 2 spaces |
-| **Standard JS** | single | no | 2 spaces |
-| **Google** | single | yes | 2 spaces |
-| **XO** | double | yes | tabs |
+| Style | Quotes | Semicolons | Trailing Commas | Indent |
+|---|---|---|---|---|
+| **Airbnb** | single | yes | all | 2 spaces |
+| **Standard JS** | single | no | none | 2 spaces |
+| **Google** | single | yes | es5 | 2 spaces |
+| **XO** | single | yes | all | tabs |
 
 ---
 
